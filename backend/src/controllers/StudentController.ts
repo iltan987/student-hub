@@ -39,7 +39,7 @@ class StudentController {
         try {
             const [updated] = await Student.update(req.body, { where: { id: req.params.id } });
             if (updated) {
-                const updatedStudent = await Student.findByPk(req.params.id);
+                const updatedStudent = await Student.findByPk(req.params.id, { include: [Class, Course] });
                 res.status(200).json(updatedStudent);
             } else {
                 res.status(404).json({ error: 'Student not found' });
