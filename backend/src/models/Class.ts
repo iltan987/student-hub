@@ -8,6 +8,6 @@ export class Class extends Model<InferAttributes<Class>, InferCreationAttributes
     @Column
     name!: string;
 
-    @HasMany(() => Student)
+    @HasMany(() => Student, { onDelete: 'RESTRICT' })
     students: Student[] = [];
 }

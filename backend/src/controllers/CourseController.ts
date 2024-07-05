@@ -6,7 +6,7 @@ class CourseController {
     public async create(req: Request, res: Response): Promise<void> {
         try {
             const newCourse = await Course.create(req.body);
-            res.status(201).json(newCourse);
+            res.status(201).json(await Course.findByPk(newCourse.id, { include: [Student] }));
         } catch (error: any) {
             res.status(500).json({ error: error.message });
         }

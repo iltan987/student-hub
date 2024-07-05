@@ -7,7 +7,7 @@ class StudentController {
     public async create(req: Request, res: Response): Promise<void> {
         try {
             const newStudent = await Student.create(req.body);
-            res.status(201).json(newStudent);
+            res.status(201).json(await Student.findByPk(newStudent.id, { include: [Class, Course] }));
         } catch (error: any) {
             res.status(500).json({ error: error.message });
         }
