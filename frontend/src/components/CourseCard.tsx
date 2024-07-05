@@ -1,19 +1,19 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { Class } from "../types";
+import { Course } from "../types";
 import { Link } from "react-router-dom";
 
-interface ClassCardProps {
-  classData: Class;
-  onEdit: (classData: Class) => void;
-  onDelete: (classData: Class) => void;
+interface CourseCardProps {
+  course: Course;
+  onEdit: (classData: Course) => void;
+  onDelete: (classData: Course) => void;
 }
 
-const ClassCard: React.FC<ClassCardProps> = ({ classData: cls, onEdit, onDelete }) => {
+const CourseCard: React.FC<CourseCardProps> = ({ course: cls, onEdit, onDelete }) => {
   return (
     <div className="relative bg-white rounded-lg shadow-lg p-6 m-4 w-64 transition-transform duration-200 ease-in-out transform hover:-translate-y-1 group/item">
-      <Link to={`/classes/${cls.id}`} className="block">
+      <Link to={`/courses/${cls.id}`} className="block">
         <div className="font-bold text-xl mb-2">{cls.name}</div>
         <div className="text-gray-700 text-base">
           Total Students: {cls.students.length}
@@ -37,4 +37,4 @@ const ClassCard: React.FC<ClassCardProps> = ({ classData: cls, onEdit, onDelete 
   );
 };
 
-export default ClassCard;
+export default CourseCard;

@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Student } from "../types";
 import { Link } from "react-router-dom";
 
@@ -13,11 +13,18 @@ interface StudentCardProps {
 const StudentCard: React.FC<StudentCardProps> = ({ std, onEdit, onDelete }) => {
   return (
     <div className="relative bg-white rounded-lg shadow-lg p-6 m-4 w-64 transition-transform duration-200 ease-in-out transform hover:-translate-y-1 group/item">
-      <Link to={`/students/${std.id}`} className="block">
+      <Link to={`/students/${std.id}`} className="block mt-8">
+        <div className="absolute top-2 left-1/2 transform -translate-x-1/2">
+          <FontAwesomeIcon icon={faUser} size="2x" />
+        </div>
         <div className="font-bold text-xl mb-2">{std.name}</div>
-        <div className="text-gray-700 text-base">Student Id: {std.studentId}</div>
+        <div className="text-gray-700 text-base">
+          Student Id: {std.studentId}
+        </div>
         <div className="text-gray-700 text-base">Age: {std.age}</div>
-        <div className="text-gray-700 text-base">Class: {std.class?.name ?? "Not assigned"}</div>
+        <div className="text-gray-700 text-base">
+          Class: {std.class?.name ?? "Not assigned"}
+        </div>
         <div className="text-gray-700 text-base">
           Total Courses: {std.courses.length}
         </div>

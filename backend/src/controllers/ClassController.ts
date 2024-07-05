@@ -5,8 +5,8 @@ import { Student } from "../models/Student";
 class ClassController {
   public async create(req: Request, res: Response): Promise<void> {
     try {
-      const newClass = await Class.create(req.body, { include: [Student] });
-      res.status(201).json(Class.findByPk(newClass.id, { include: [Student] }));
+      const newClass = await Class.create(req.body);
+      res.status(201).json(await Class.findByPk(newClass.id, { include: [Student] }));
     } catch (error: any) {
       res.status(500).json({ error: error.message });
     }

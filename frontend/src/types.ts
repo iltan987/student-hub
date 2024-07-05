@@ -5,17 +5,13 @@ export class Class {
   id?: number | any;
   createdAt?: Date | any;
   updatedAt?: Date | any;
-
-  constructor(name: string) {
-    this.name = name;
-  }
 }
 
 export class Student {
   studentId!: string;
   name!: string;
   age!: number;
-  class?: Class;
+  class?: Class | null = null;
   courses: Array<Course & { BookAuthor: StudentCourse; }> = [];
   classId?: number;
 
