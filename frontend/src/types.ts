@@ -13,7 +13,7 @@ export class Student {
   age!: number;
   class?: Class | null = null;
   courses: Array<Course & { BookAuthor: StudentCourse; }> = [];
-  classId?: number;
+  classId?: number | null = null;
 
   id?: number | any;
   createdAt?: Date | any;

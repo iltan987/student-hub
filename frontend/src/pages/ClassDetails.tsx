@@ -56,9 +56,9 @@ const ClassDetails: React.FC = () => {
 
   const handleRemoveStudent = async (studentId: number) => {
     try {
-      await updateStudent({id: studentId, class: null})
+      await updateStudent({id: studentId, classId: null})
       const updatedClass = await fetchClass(id!);
-      
+
       setClassDetails(updatedClass);
       setStudents(updatedClass.students);
       setAvailableStudents([...availableStudents, students.find(student => student.id === studentId)!]);

@@ -160,7 +160,7 @@ const StudentPage: React.FC = () => {
       <div className="mb-4">
         <input
           type="text"
-          placeholder="Search students..."
+          placeholder="Search students by name or student ID"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           className="p-2 border border-gray-300 rounded-md w-full"
